@@ -68,7 +68,7 @@ namespace ExampleApp
         private void SelectFontSize_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             string fontSize = selectFontSize.SelectedItem.ToString();
             fontSize = fontSize.Substring(fontSize.Length - 2);
-
+            
             switch(fontSize) {
                 case "10":
                     textBox.FontSize = 10;
@@ -92,6 +92,8 @@ namespace ExampleApp
                     textBox.FontSize = 48;
                     break;
             }
+
+        
         }
 
         private void CreateNewFile_Click(object sender, RoutedEventArgs e) {
@@ -197,6 +199,34 @@ namespace ExampleApp
             {
                 sql.Close();
             }
+        }
+
+        private void selectFontinToolbar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            ComboBox comboBox = (ComboBox)sender;
+            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
+            
+            if (selectedItem.Content != null)
+            {
+                textBox.FontFamily = new FontFamily((string)selectedItem.Content);
+                if ((string)selectedItem.Content == "Times New Roman")
+                {
+                    timesNewRomanFont.IsChecked = true;
+                    verdanaFont.IsChecked = false;
+                }
+                else
+                {
+                    timesNewRomanFont.IsChecked = false;
+                    verdanaFont.IsChecked = true;
+                }
+            }
+            
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -68,6 +68,7 @@
                 <Button x:Name="btnPaste" ToolTip="Вставить текст" Command="ApplicationCommands.Paste">
                     <Image Source="./Resources/paste.ico" Height="25" Width="25"></Image>
                 </Button>
+                
 
                 <Label>Размер шрифта:</Label>
                 <ComboBox x:Name="selectFontSize"
@@ -80,8 +81,21 @@
                     <ComboBoxItem>32</ComboBoxItem>
                     <ComboBoxItem>48</ComboBoxItem>
                 </ComboBox>
+                <ComboBox x:Name="selectFontinToolbar"
+                          SelectionChanged="selectFontinToolbar_SelectionChanged" Margin="0" Width="131">
+                    <ComboBoxItem IsSelected="true">Times New Roman</ComboBoxItem>
+                    <ComboBoxItem>Verdana</ComboBoxItem>
+                </ComboBox>
+                
+                <StackPanel Height="31" VerticalAlignment="Top" Width="340"/>
+                <Button x:Name="btnExit" ToolTip="Выход" Click="btnExit_Click" Height="31" Width="32">
+                    <Image Source="./Resources/exit2.ico" Height="25" Width="25"></Image>
+                </Button>
             </ToolBar>
+            
         </ToolBarTray>
+        
+        
         <TabControl x:Name="tabControl" Height="367"  Width="790">
             <TabItem Header="Регистрация">
                 <Grid Background="#10111f">
@@ -94,7 +108,7 @@
             </TabItem>
             <TabItem Header="Редактор">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox x:Name="textBox" Width="782" FontSize="14" />
+                    <TextBox x:Name="textBox" Width="782" FontSize="14" FontFamily="Times New Roman" />
                 </Grid>
             </TabItem>
         </TabControl>
